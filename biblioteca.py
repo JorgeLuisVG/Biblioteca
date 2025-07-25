@@ -1,5 +1,5 @@
 print("Biblioteca")
-
+Biblioteca = {}
 def Libro():
     informacion ={}
     def generoLibro():
@@ -45,13 +45,21 @@ def Libro():
     }
     return informacion
 
-Biblioteca = {}
+def MostrarBiblioteca():
+    for Titulo in Biblioteca.items():
+        print(f"titulo : {Titulo}")
 
 while True:
     print("1 = Agregar libro")
+    print("2 = Mostrar biblioteca")
     opcion = input()
 
     if opcion == "1":
-        Biblioteca = {"Libros" : Libro()}
+        Biblioteca = {"Libro" : Libro()}
+
+    elif opcion == "2":
+        MostrarBiblioteca()
+
+
 
 
