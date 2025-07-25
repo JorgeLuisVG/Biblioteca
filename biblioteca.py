@@ -50,7 +50,10 @@ def MostrarBiblioteca():
         print(f"titulo : {Titulo}")
 
 def BuscarLibro(Busqueda):
-    print()
+    for buscar in Biblioteca:
+        if Busqueda in buscar["Titulo"]:
+            print(f"{buscar}")    
+
 while True:
     print("1 = Agregar libro")
     print("2 = Mostrar biblioteca")
