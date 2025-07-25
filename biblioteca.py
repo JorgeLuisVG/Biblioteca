@@ -49,17 +49,21 @@ def MostrarBiblioteca():
     for Titulo in Biblioteca.items():
         print(f"titulo : {Titulo}")
 
+def BuscarLibro(Busqueda):
+    print()
 while True:
     print("1 = Agregar libro")
     print("2 = Mostrar biblioteca")
+    print("3 = Buscar un libro")
+    print("4 = Salir")
     opcion = input()
 
     if opcion == "1":
         Biblioteca = {"Libro" : Libro()}
-
     elif opcion == "2":
         MostrarBiblioteca()
-
-
-
-
+    elif opcion == "3":
+        Busqueda = input("Ingrese el nombre del libro que desea buscar")
+        BuscarLibro(Busqueda)
+    elif opcion == "4":
+        break
