@@ -13,6 +13,27 @@ def Libro():
         print("7 = Infantil")
         print("8 = Comic")
         print("9 = Educativo")
+        Seleccion = input()
+
+        if Seleccion == "1":
+            return "Narrativo"
+        elif Seleccion == "2":
+            return "Lirico"
+        elif Seleccion == "3":
+            return "Dramatico"
+        elif Seleccion == "4":
+            return "Didactico"
+        elif Seleccion == "5":
+            return "Ficcion"
+        elif Seleccion == "6":
+            return "Cientifico"
+        elif Seleccion == "7":
+            return "Infantil"
+        elif Seleccion == "8":
+            return "Comic"
+        elif Seleccion == "9":
+            return "Educativo"
+
     nombreLibro = input("ingrese elnombre del libro")
     nombreAutor = input("Ingrese el nombre del autor")
     genero = generoLibro()
@@ -24,9 +45,7 @@ def Libro():
         "Genero" : genero,
         "Año" : año
     }
-
-
-    
+    return informacion
 
 Libros = []
 
