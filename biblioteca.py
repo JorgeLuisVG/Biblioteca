@@ -18,6 +18,13 @@ def Libro():
     genero = generoLibro()
     año = int(input("Ingrese el año de publicacion"))
 
+    informacion = {
+        "Titulo" : nombreLibro,
+        "Autor" : nombreAutor,
+        "Genero" : genero,
+        "Año" : año
+    }
+
 
     
 
