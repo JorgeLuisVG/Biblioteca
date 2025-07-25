@@ -1,7 +1,7 @@
 print("Biblioteca")
 Biblioteca = {}
+
 def Libro():
-    informacion ={}
     def generoLibro():
         print("1 = Narrativo")
         print("2 = Lirico")
@@ -32,42 +32,68 @@ def Libro():
             return "Comic"
         elif Seleccion == "9":
             return "Educativo"
+        else:
+            return "Desconocido"
 
-    nombreLibro = input("ingrese elnombre del libro")
-    nombreAutor = input("Ingrese el nombre del autor")
+    nombreLibro = input("Ingrese el nombre del libro: ").strip().title()
+    nombreAutor = input("Ingrese el nombre del autor: ").strip().title()
     genero = generoLibro()
-    año = int(input("Ingrese el año de publicacion"))
+    año = int(input("Ingrese el año de publicación: "))
 
-    informacion[nombreLibro] = {
-        "Autor" : nombreAutor,
-        "Genero" : genero,
-        "Año" : año
+    return {
+        "Titulo": nombreLibro,
+        "Autor": nombreAutor,
+        "Genero": genero,
+        "Año": año
     }
-    return informacion
 
 def MostrarBiblioteca():
-    for Titulo in Biblioteca.items():
-        print(f"titulo : {Titulo}")
+    if not Biblioteca:
+        print("La biblioteca está vacía.")
+    else:
+        for titulo, datos in Biblioteca.items():
+            print(f"Título: {titulo}")
+            print(f"  Autor: {datos['Autor']}")
+            print(f"  Género: {datos['Genero']}")
+            print(f"  Año: {datos['Año']}")
+            print()
 
 def BuscarLibro(Busqueda):
-    for buscar in Biblioteca:
-        if Busqueda in buscar["Titulo"]:
-            print(f"{buscar}")    
+    encontrado = False
+    for titulo, datos in Biblioteca.items():
+        if Busqueda.title() in titulo.title():
+            print(f"Título: {titulo}")
+            print(f"  Autor: {datos['Autor']}")
+            print(f"  Género: {datos['Genero']}")
+            print(f"  Año: {datos['Año']}")
+            print()
+            encontrado = True
+    if not encontrado:
+        print("Libro no encontrado.")
 
 while True:
-    print("1 = Agregar libro")
+    print("\n1 = Agregar libro")
     print("2 = Mostrar biblioteca")
     print("3 = Buscar un libro")
     print("4 = Salir")
-    opcion = input()
+    opcion = input("Seleccione una opción: ")
 
     if opcion == "1":
-        Biblioteca = {"Libro" : Libro()}
+        libro = Libro()
+        Biblioteca[libro["Titulo"]] = {
+            "Autor": libro["Autor"],
+            "Genero": libro["Genero"],
+            "Año": libro["Año"]
+        }
     elif opcion == "2":
         MostrarBiblioteca()
     elif opcion == "3":
-        Busqueda = input("Ingrese el nombre del libro que desea buscar")
+        Busqueda = input("Ingrese el nombre del libro que desea buscar: ")
         BuscarLibro(Busqueda)
     elif opcion == "4":
+        print("Saliendo del programa...")
         break
+    else:
+        print("Opción no válida. Intente de nuevo.")
+
 
