@@ -1,8 +1,7 @@
 print("Biblioteca")
 
-#título, autor, género, año
-
 def Libro():
+    informacion ={}
     def generoLibro():
         print("1 = Narrativo")
         print("2 = Lirico")
@@ -39,19 +38,20 @@ def Libro():
     genero = generoLibro()
     año = int(input("Ingrese el año de publicacion"))
 
-    informacion = {
-        "Titulo" : nombreLibro,
+    informacion[nombreLibro] = {
         "Autor" : nombreAutor,
         "Genero" : genero,
         "Año" : año
     }
     return informacion
 
-Libros = []
+Biblioteca = {}
 
 while True:
     print("1 = Agregar libro")
     opcion = input()
 
     if opcion == "1":
-        nombre = ""
+        Biblioteca = {"Libros" : Libro()}
+
+
